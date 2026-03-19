@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junaid Muhammad Khan | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #020617; color: white; scroll-behavior: smooth; font-family: 'Inter', sans-serif; overflow-x: hidden; position: relative; }
+        
+        /* Deep Space Gradient */
+        .deep-space { background: radial-gradient(circle at center, #101827 0%, #030712 100%); position: relative; }
+        
+        /* Star Particles Canvas */
+        #starfield { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6; }
+
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.4s ease; position: relative; z-index: 1; }
+        .project-card:hover { transform: translateY(-12px); border-color: #3b82f6; box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.2); }
+        .terminal-box { background: rgba(15, 23, 42, 0.9); border: 1px solid #334155; font-family: 'Courier New', Courier, monospace; position: relative; z-index: 1; }
+        
+        .btn-appstore { background: #000000; color: #ffffff; border: 1px solid #334155; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; border-radius: 12px; }
+        .btn-appstore:hover { background: #1e293b; transform: scale(1.02); border-color: #3b82f6; }
+        
+        .cv-button { border: 2px solid #3b82f6; color: #3b82f6; transition: all 0.3s ease; position: relative; z-index: 1; }
+        .cv-button:hover { background: #3b82f6; color: white; box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+        
+        .badge-tech { font-size: 10px; background: rgba(59, 130, 246, 0.1); color: #60a5fa; padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(59, 130, 246, 0.2); font-weight: bold; }
+
+        /* The Email Link (Looks like text, copies on click) */
+        .email-copy { cursor: pointer; transition: all 0.3s ease; text-decoration: underline; text-decoration-color: rgba(59, 130, 246, 0.3); break-all: break-word; }
+        .email-copy:hover { color: #60a5fa; text-decoration-color: #3b82f6; }
+    </style>
+</head>
+<body class="deep-space">
+
+    <canvas id="starfield"></canvas>
+
+    <section class="h-screen flex flex-col justify-center items-center text-center px-4 relative">
+        <div class="relative z-10">
+            <h1 class="text-6xl md:text-9xl font-black mb-4 tracking-tighter uppercase" data-aos="zoom-in">
+                Junaid Muhammad Khan
+            </h1>
+            <p class="text-xl md:text-2xl text-blue-400 font-mono tracking-[0.3em] mb-12" data-aos="fade-up" data-aos-delay="200">
+                GAME DEVELOPER • SOFTWARE ENGINEER
+            </p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center" data-aos="fade-up" data-aos-delay="400">
+                <a href="#projects" class="px-12 py-4 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-500 transition-all">
+                    EXPLORE DEPLOYMENTS
+                </a>
+                <a href="Junaid Muhammad Khan - Resume.pdf" target="_blank" class="cv-button px-12 py-4 rounded-full font-bold flex items-center justify-center gap-2 relative z-10">
+                    <i class="fas fa-file-download"></i> DOWNLOAD CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-8 max-w-7xl mx-auto relative z-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up">
+            <div class="glass p-4 rounded-xl text-center border-b-2 border-blue-500">
+                <i class="fab fa-unity text-2xl mb-2 text-white"></i>
+                <p class="text-xs font-bold uppercase tracking-widest text-white">Unity / C#</p>
+            </div>
+            <div class="glass p-4 rounded-xl text-center border-b-2 border-orange-500">
+                <i class="fas fa-code text-2xl mb-2 text-white"></i>
+                <p class="text-xs font-bold uppercase tracking-widest text-white">C++ / Java</p>
+            </div>
+            <div class="glass p-4 rounded-xl text-center border-b-2 border-cyan-400">
+                <i class="fab fa-swift text-2xl mb-2 text-white"></i>
+                <p class="text-xs font-bold uppercase tracking-widest text-white">SwiftUI / iOS</p>
+            </div>
+            <div class="glass p-4 rounded-xl text-center border-b-2 border-yellow-500">
+                <i class="fas fa-layer-group text-2xl mb-2 text-white"></i>
+                <p class="text-xs font-bold uppercase tracking-widest text-white">Shaders & Physics</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 px-8 max-w-7xl mx-auto relative z-10">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+            <h2 class="text-4xl font-bold border-l-8 border-blue-600 pl-6" data-aos="fade-right">PRODUCTION_LOG</h2>
+            <p class="text-gray-500 font-mono text-sm">/ Support & Marketing Active</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <div class="project-card glass p-8 rounded-3xl flex flex-col justify-between" data-aos="fade-up">
+                <div>
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="flex gap-2">
+                            <span class="badge-tech">SWIFTUI</span>
+                            <span class="badge-tech">IOS NATIVE</span>
+                        </div>
+                        <i class="fab fa-apple text-2xl text-gray-700"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-3 text-white">Tenure</h3>
+                    <p class="text-gray-400 leading-relaxed mb-8">Professional achievement catalogue engineered with SwiftUI. Designed for fluid UX and optimal mobile performance. For inquiries or support, contact the developer below.</p>
+                </div>
+                <a href="https://apps.apple.com/us/app/tenure-career-win-tracker/id6757939990" target="_blank" class="btn-appstore">
+                    <i class="fab fa-apple text-2xl"></i>
+                    <div class="text-left">
+                        <p class="text-[8px] uppercase leading-none">Download on the</p>
+                        <p class="text-lg font-semibold leading-tight">App Store</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="project-card glass p-8 rounded-3xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="flex gap-2">
+                            <span class="badge-tech">UNITY 3D</span>
+                            <span class="badge-tech">URP / C#</span>
+                        </div>
+                        <i class="fas fa-gamepad text-2xl text-gray-700"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-3 text-white">Iron Slash</h3>
+                    <p class="text-gray-400 leading-relaxed mb-8">Fast-paced mobile combat title. Feature rigorous memory management and shader optimization to achieve high FPS. Published and live on the App Store.</p>
+                </div>
+                <a href="https://apps.apple.com/us/app/iron-slash/id6758070456" target="_blank" class="btn-appstore">
+                    <i class="fab fa-apple text-2xl"></i>
+                    <div class="text-left">
+                        <p class="text-[8px] uppercase leading-none">Download on the</p>
+                        <p class="text-lg font-semibold leading-tight">App Store</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="project-card glass p-8 rounded-3xl" data-aos="fade-up">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="flex gap-2"><span class="badge-tech">HDRP</span><span class="badge-tech">HORROR</span></div>
+                    <span class="text-[10px] text-red-500 font-bold uppercase">Alpha Build</span>
+                </div>
+                <h3 class="text-3xl font-bold mb-3">Finlena</h3>
+                <p class="text-gray-400 leading-relaxed">Developing advanced atmospheric storytelling using Unity's High Definition Render Pipeline. Focus on lighting physics and realistic PBR texturing.</p>
+            </div>
+
+            <div class="project-card glass p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="flex gap-2"><span class="badge-tech">2D MOBILE</span><span class="badge-tech">C# SCRIPTING</span></div>
+                </div>
+                <h3 class="text-3xl font-bold mb-3">Color Smash</h3>
+                <p class="text-gray-400 leading-relaxed">High-performance arcade experience utilizing advanced object pooling and custom event systems for optimized C# gameplay loops.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-8 max-w-4xl mx-auto relative z-10">
+        <div class="terminal-box rounded-2xl overflow-hidden shadow-2xl" data-aos="zoom-out">
+            <div class="bg-gray-800 px-4 py-3 flex justify-between items-center">
+                <div class="flex gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <span class="text-[10px] text-gray-500 font-mono uppercase">Uplink Status: Secure</span>
+            </div>
+            <div class="p-8 font-mono text-sm md:text-base">
+                <p class="text-green-400 mb-2">$ system.initiate_comms()</p>
+                <p class="text-white mb-8 opacity-70">"Available for inquiries regarding existing apps or future engineering."</p>
+                
+                <p class="text-blue-400 mb-2">> SECURE_UPLINK (CLICK ADDRESS TO COPY):</p>
+                <div class="flex items-center gap-4 flex-wrap">
+                    <span onclick="copyEmail()" class="email-copy text-white hover:text-blue-400 text-xl md:text-3xl font-bold break-all">
+                        imjunaid.mkhan@gmail.com
+                    </span>
+                    <span id="copy-status" class="text-xs text-green-500 font-bold h-4"></span>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 pt-8 border-t border-white/5">
+                    <a href="https://github.com/Junaid-muhammad-khan" target="_blank" class="hover:text-blue-400 flex items-center gap-2 text-xs text-gray-400">
+                        <i class="fab fa-github"></i> GITHUB
+                    </a>
+                    <a href="https://www.linkedin.com/in/junaid-muhammad-khan/" target="_blank" class="hover:text-blue-400 flex items-center gap-2 text-xs text-gray-400">
+                        <i class="fab fa-linkedin"></i> LINKEDIN
+                    </a>
+                    <a href="https://www.instagram.com/imjunaid.muhammadkhan/" target="_blank" class="hover:text-pink-400 flex items-center gap-2 text-xs text-gray-400">
+                        <i class="fab fa-instagram"></i> INSTAGRAM
+                    </a>
+                    <a href="Junaid Muhammad Khan - Resume.pdf" target="_blank" class="text-green-500 hover:text-green-400 flex items-center gap-2 text-xs font-bold">
+                        <i class="fas fa-file-pdf"></i> CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-gray-800 text-[9px] tracking-[0.5em] uppercase relative z-10">
+        &copy; 2026 Junaid Muhammad Khan • Designed for performance
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        /* No-Click Copy Email Logic */
+        function copyEmail() {
+            const email = 'imjunaid.mkhan@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const status = document.getElementById('copy-status');
+                status.innerText = "[UPLINK SECURED]";
+                setTimeout(() => { status.innerText = ""; }, 3000);
+            });
+        }
+
+        /* Interactive Starfield Logic
+           Based on Cursor Repulsion
+        */
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const numParticles = 100;
+
+        let mouse = { x: null, y: null, radius: 100 }; // Cursor repulsion area
+
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.baseX = this.x;
+                this.baseY = this.y;
+                this.size = Math.random() * 2 + 1;
+                this.color = `rgba(255, 255, 255, ${Math.random()})`;
+                this.velocity = Math.random() * 0.5 + 0.1;
+                this.pushStrength = Math.random() * 5 + 1;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.random() * Math.PI * 2);
+                ctx.fill();
+            }
+            update() {
+                // Movement
+                this.y += this.velocity;
+                if (this.y > canvas.height) {
+                    this.y = 0;
+                    this.x = Math.random() * canvas.width;
+                    this.baseX = this.x;
+                    this.baseY = this.y;
+                }
+
+                // Cursor Repulsion
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < mouse.radius) {
+                    let forceDirectionX = dx / distance;
+                    let forceDirectionY = dy / distance;
+                    let force = (mouse.radius - distance) / mouse.radius;
+                    let directionX = forceDirectionX * force * this.pushStrength;
+                    let directionY = forceDirectionY * force * this.pushStrength;
+
+                    this.x -= directionX;
+                    this.y -= directionY;
+                } else {
+                    // Gradual return to base path
+                    if (this.x !== this.baseX) {
+                        let dxBase = this.x - this.baseX;
+                        this.x -= dxBase / 20;
+                    }
+                }
+            }
+        }
+
+        function init() {
+            particles = [];
+            for (let i = 0; i < numParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].draw();
+                particles[i].update();
+            }
+            requestAnimationFrame(animate);
+        }
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init(); // Restart simulation on resize
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas(); // Initialize
+        animate(); // Start loop
+
+    </script>
+</body>
+</html>
