@@ -9,26 +9,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { background-color: #020617; color: white; scroll-behavior: smooth; font-family: 'Inter', sans-serif; overflow-x: hidden; position: relative; }
-        
-        /* Deep Space Gradient */
         .deep-space { background: radial-gradient(circle at center, #101827 0%, #030712 100%); position: relative; }
-        
-        /* Star Particles Canvas */
         #starfield { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6; }
-
         .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.4s ease; position: relative; z-index: 1; }
         .project-card:hover { transform: translateY(-12px); border-color: #3b82f6; box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.2); }
         .terminal-box { background: rgba(15, 23, 42, 0.9); border: 1px solid #334155; font-family: 'Courier New', Courier, monospace; position: relative; z-index: 1; }
-        
         .btn-appstore { background: #000000; color: #ffffff; border: 1px solid #334155; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; border-radius: 12px; }
         .btn-appstore:hover { background: #1e293b; transform: scale(1.02); border-color: #3b82f6; }
-        
         .cv-button { border: 2px solid #3b82f6; color: #3b82f6; transition: all 0.3s ease; position: relative; z-index: 1; }
         .cv-button:hover { background: #3b82f6; color: white; box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
-        
         .badge-tech { font-size: 10px; background: rgba(59, 130, 246, 0.1); color: #60a5fa; padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(59, 130, 246, 0.2); font-weight: bold; }
-
-        /* The Email Link (Looks like text, copies on click) */
         .email-copy { cursor: pointer; transition: all 0.3s ease; text-decoration: underline; text-decoration-color: rgba(59, 130, 246, 0.3); break-all: break-word; }
         .email-copy:hover { color: #60a5fa; text-decoration-color: #3b82f6; }
     </style>
@@ -84,7 +74,6 @@
         </div>
         
         <div class="grid md:grid-cols-2 gap-8">
-            
             <div class="project-card glass p-8 rounded-3xl flex flex-col justify-between" data-aos="fade-up">
                 <div>
                     <div class="flex justify-between items-center mb-6">
@@ -110,13 +99,13 @@
                 <div>
                     <div class="flex justify-between items-center mb-6">
                         <div class="flex gap-2">
-                            <span class="badge-tech">UNITY 3D</span>
+                            <span class="badge-tech">UNITY 2D</span>
                             <span class="badge-tech">URP / C#</span>
                         </div>
                         <i class="fas fa-gamepad text-2xl text-gray-700"></i>
                     </div>
                     <h3 class="text-3xl font-bold mb-3 text-white">Iron Slash</h3>
-                    <p class="text-gray-400 leading-relaxed mb-8">Fast-paced mobile combat title. Feature rigorous memory management and shader optimization to achieve high FPS. Published and live on the App Store.</p>
+                    <p class="text-gray-400 leading-relaxed mb-8">Fast-paced 2D mobile combat title. High-performance physics and sprite optimization for smooth 60FPS gameplay. Live on the App Store.</p>
                 </div>
                 <a href="https://apps.apple.com/us/app/iron-slash/id6758070456" target="_blank" class="btn-appstore">
                     <i class="fab fa-apple text-2xl"></i>
@@ -186,15 +175,36 @@
         </div>
     </section>
 
-    <footer class="py-12 text-center text-gray-800 text-[9px] tracking-[0.5em] uppercase relative z-10">
-        &copy; 2026 Junaid Muhammad Khan • Designed for performance
+    <section id="legal" class="py-12 px-8 max-w-4xl mx-auto relative z-10 border-t border-white/5">
+        <div class="grid md:grid-cols-2 gap-8 text-sm font-mono">
+            <div class="glass p-6 rounded-xl">
+                <h4 class="text-blue-400 mb-2 uppercase">Privacy Policy</h4>
+                <p class="text-gray-500 text-xs leading-relaxed">
+                    Color Smash 2D and Iron Slash do not collect personal identifiers. However, third-party SDKs (Google AdMob, PlayFab) may collect non-personal device IDs for advertising and leaderboard functionality. By using these apps, you agree to their respective privacy terms.
+                </p>
+            </div>
+            <div class="glass p-6 rounded-xl">
+                <h4 class="text-blue-400 mb-2 uppercase">Copyright & Legal</h4>
+                <p class="text-gray-500 text-xs leading-relaxed">
+                    All game assets, code, and related media are Copyright &copy; 2026 Junaid Muhammad Khan. Unauthorized use or redistribution is strictly prohibited. Developed under the Junsteel brand.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center relative z-10">
+        <p class="text-gray-600 text-[10px] tracking-[0.5em] uppercase mb-4">
+            Designed for performance &bull; Verified for App Store
+        </p>
+        <p class="text-white font-bold tracking-widest uppercase text-sm">
+            Developed by Junaid Muhammad Khan
+        </p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        /* No-Click Copy Email Logic */
         function copyEmail() {
             const email = 'imjunaid.mkhan@gmail.com';
             navigator.clipboard.writeText(email).then(() => {
@@ -204,20 +214,13 @@
             });
         }
 
-        /* Interactive Starfield Logic
-           Based on Cursor Repulsion
-        */
         const canvas = document.getElementById('starfield');
         const ctx = canvas.getContext('2d');
         let particles = [];
         const numParticles = 100;
+        let mouse = { x: null, y: null, radius: 100 };
 
-        let mouse = { x: null, y: null, radius: 100 }; // Cursor repulsion area
-
-        window.addEventListener('mousemove', (event) => {
-            mouse.x = event.x;
-            mouse.y = event.y;
-        });
+        window.addEventListener('mousemove', (event) => { mouse.x = event.x; mouse.y = event.y; });
 
         class Particle {
             constructor() {
@@ -233,69 +236,31 @@
             draw() {
                 ctx.fillStyle = this.color;
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.random() * Math.PI * 2);
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
             }
             update() {
-                // Movement
                 this.y += this.velocity;
-                if (this.y > canvas.height) {
-                    this.y = 0;
-                    this.x = Math.random() * canvas.width;
-                    this.baseX = this.x;
-                    this.baseY = this.y;
-                }
-
-                // Cursor Repulsion
+                if (this.y > canvas.height) { this.y = 0; this.x = Math.random() * canvas.width; this.baseX = this.x; }
                 let dx = mouse.x - this.x;
                 let dy = mouse.y - this.y;
                 let distance = Math.sqrt(dx * dx + dy * dy);
-
                 if (distance < mouse.radius) {
-                    let forceDirectionX = dx / distance;
-                    let forceDirectionY = dy / distance;
                     let force = (mouse.radius - distance) / mouse.radius;
-                    let directionX = forceDirectionX * force * this.pushStrength;
-                    let directionY = forceDirectionY * force * this.pushStrength;
-
-                    this.x -= directionX;
-                    this.y -= directionY;
-                } else {
-                    // Gradual return to base path
-                    if (this.x !== this.baseX) {
-                        let dxBase = this.x - this.baseX;
-                        this.x -= dxBase / 20;
-                    }
+                    this.x -= (dx / distance) * force * this.pushStrength;
+                    this.y -= (dy / distance) * force * this.pushStrength;
+                } else if (this.x !== this.baseX) {
+                    this.x -= (this.x - this.baseX) / 20;
                 }
             }
         }
 
-        function init() {
-            particles = [];
-            for (let i = 0; i < numParticles; i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].draw();
-                particles[i].update();
-            }
-            requestAnimationFrame(animate);
-        }
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            init(); // Restart simulation on resize
-        }
-
+        function init() { particles = []; for (let i = 0; i < numParticles; i++) particles.push(new Particle()); }
+        function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.draw(); p.update(); }); requestAnimationFrame(animate); }
+        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; init(); }
         window.addEventListener('resize', resizeCanvas);
-        resizeCanvas(); // Initialize
-        animate(); // Start loop
-
+        resizeCanvas();
+        animate();
     </script>
 </body>
 </html>
