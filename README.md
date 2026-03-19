@@ -34,3 +34,13 @@ A high-performance, responsive portfolio designed with a "Deep Space" aesthetic.
 ├── app-ads.txt                # AdMob verification file
 ├── Junaid Muhammad Khan - Resume.pdf  # Professional CV
 └── README.md                  # This file
+
+---
+
+## 📄 License
+
+All game assets, code, and related media are **Copyright © 2026 Junaid Muhammad Khan**. All rights reserved. Software is provided for portfolio review purposes.
+
+---
+
+**Developed by Junaid Muhammad Khan** *Game Developer • Software Engineer* [LinkedIn](https://www.linkedin.com/in/junaid-muhammad-khan/) | [GitHub](https://github.com/Junaid-muhammad-khan)
