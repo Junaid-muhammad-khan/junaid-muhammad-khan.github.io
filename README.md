@@ -21,7 +21,7 @@ A high-performance, responsive portfolio designed with a "Deep Space" aesthetic.
 | Project | Platform | Tech |
 | :--- | :--- | :--- |
 | **Tenure** | iOS | SwiftUI / Native |
-| **Iron Slash** | iOS | Unity 3D / URP / C# |
+| **Iron Slash** | iOS | Unity 2D / C# |
 | **Color Smash 2D** | iOS | Unity 2D / C# |
 | **Finlena** | PC/Console | Unity HDRP (In Development) |
 
